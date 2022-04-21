@@ -1,9 +1,13 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import { CountProvider } from "./contexts/CountContext";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("renders Primer welcome", () => {
+  render(
+    <CountProvider>
+      <App />
+    </CountProvider>
+  );
+  const primerElement = screen.getByText(/Primer React Challenge Boilerplate/i);
+  expect(primerElement).toBeInTheDocument();
 });
